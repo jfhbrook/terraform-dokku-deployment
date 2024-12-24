@@ -11,7 +11,7 @@ locals {
 }
 
 module "remote" {
-  source = "git::ssh://github.com/jfhbrook/terraform-shell-git-remote?ref=1.0"
+  source = "git::ssh://git@github.com/jfhbrook/terraform-shell-git-remote?ref=1.0"
 
   path = path.cwd
   name = "dokku"
@@ -36,14 +36,14 @@ resource "dokku_app" "this" {
 }
 
 module "head" {
-  source = "git::ssh://github.com/jfhbrook/terraform-shell-git-ref?ref=1.0"
+  source = "git::ssh://git@github.com/jfhbrook/terraform-shell-git-ref?ref=1.0"
 
   path    = path.cwd
   refspec = "HEAD"
 }
 
 module "deploy" {
-  source = "git::ssh://github.com/jfhbrook/terraform-shell-git-push?ref=1.0"
+  source = "git::ssh://git@github.com/jfhbrook/terraform-shell-git-push?ref=1.0"
 
   path   = path.cwd
   remote = module.remote.name

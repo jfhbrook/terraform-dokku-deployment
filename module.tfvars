@@ -1,5 +1,5 @@
 module = {
-  description = "An opinionated module for deploying to Dokku with the Dokku provider"
+  description = "An opinionated module for deploying to Dokku, using the Dokku provider."
   name        = "deployment"
   namespace   = "jfhbrook"
   private     = false

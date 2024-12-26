@@ -5,7 +5,7 @@ locals {
   app_json      = fileexists("app.json") ? jsondecode(file("app.json")) : null
   app_name      = coalesce(var.app_name, local.app_json.name)
   domain        = "${local.app_name}.${var.hostname}"
-  http_protocol = var.letsencrypt.enable ? "http" : "https"
+  http_protocol = var.letsencrypt.enable ? "https" : "http"
   app_url       = "${local.http_protocol}://${local.domain}"
   ssh_host      = coalesce(var.ssh_host, var.hostname)
 }
